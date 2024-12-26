@@ -1,0 +1,106 @@
+﻿<Window x:Class="InventoryManagementSystem.ProfileandHistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Profile and Order History" Height="665" Width="934"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip">
+    <Window.Resources>
+        <!-- Color Resources -->
+        <SolidColorBrush x:Key="PrimaryBlue" Color="#1B4F72"/>
+        <SolidColorBrush x:Key="SecondaryBlue" Color="#2874A6"/>
+        <SolidColorBrush x:Key="PrimaryWhite" Color="White"/>
+        <SolidColorBrush x:Key="AccentGray" Color="#F3F4F6"/>
+
+        <!-- Custom Button Style -->
+        <Style x:Key="StyledButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Custom DataGrid Style -->
+        <Style x:Key="StyledDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="{StaticResource AccentGray}"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="RowHeight" Value="40"/>
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="Gray"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource AccentGray}" Margin="0,53,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="134*"/>
+            <ColumnDefinition Width="731*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Back Button -->
+        <Button Name="BackButton" Height="26" Width="109" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="20,-45,0,0" Click="BackButton_Click" 
+                Background="{StaticResource SecondaryBlue}" BorderBrush="{StaticResource PrimaryBlue}" Foreground="White" 
+                FontWeight="Bold" BorderThickness="1" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Polygon Points="10,20 30,10 30,30"
+                         Fill="White" HorizontalAlignment="Center"
+                         Margin="0,0,5,0"/>
+                <TextBlock Text="Back" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <TabControl Margin="20,10,10,20" Background="White" BorderBrush="{StaticResource PrimaryBlue}" BorderThickness="2" Grid.ColumnSpan="3">
+            <!-- Profile Tab -->
+            <TabItem Header="Profile" Background="{StaticResource PrimaryBlue}" Foreground="White">
+                <Border BorderBrush="{StaticResource PrimaryBlue}" BorderThickness="1" Margin="30,0,20,0" Padding="20" CornerRadius="15" Height="458" Background="#FF2374A9">
+                    <StackPanel Margin="-11,-11,0,3">
+                        <!-- Title Text -->
+                        <TextBlock Text="User Profile" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10"/>
+
+                        <!-- Display Profile Information (Data fetched from database) -->
+                        <TextBlock Text="Name" FontFamily="Segoe UI" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Margin="10" Height="37" FontSize="20"/>
+                        <TextBlock Name="UserNameTextBlock" FontFamily="Times New Roman" Margin="10" Foreground="#FFE7EDF1" FontSize="20"/>
+
+                        <TextBlock Text="Email-Address " FontFamily="Segoe UI" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Margin="10" FontSize="20"/>
+                        <TextBlock Name="UserEmailTextBlock" FontFamily="Times New Roman" Margin="10" Foreground="#FFEFF2F4" FontSize="20"/>
+
+                        <TextBlock Text="Phone " FontFamily="Segoe UI" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Margin="10" FontSize="20"/>
+                        <TextBlock Name="UserPhoneTextBlock" FontFamily="Times New Roman" Margin="10" Foreground="#FFEEF1F4" FontSize="20"/>
+
+                        <TextBlock Text="Address " FontFamily="Segoe UI" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Margin="10" FontSize="20"/>
+                        <TextBlock Name="UserAddressTextBlock" FontFamily="Times New Roman" Margin="10" Foreground="#FFF1F3F4" FontSize="20"/>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+
+            <!-- Order History Tab -->
+            <TabItem Header="Order History" Background="{StaticResource PrimaryBlue}" Foreground="White">
+                <Border BorderBrush="{StaticResource PrimaryBlue}" BorderThickness="1" Margin="20" Padding="20" CornerRadius="15">
+                    <DataGrid Name="OrderHistoryDataGrid" Style="{StaticResource StyledDataGrid}" AutoGenerateColumns="True" Background="{x:Null}" />
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <!-- Footer with a styled button -->
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="98,0,0,20" Grid.Column="2">
+
+        </StackPanel>
+    </Grid>
+</Window>
