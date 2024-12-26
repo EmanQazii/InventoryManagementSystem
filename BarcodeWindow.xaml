@@ -1,0 +1,71 @@
+﻿<Window x:Class="InventoryManagementSystem.BarcodeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Barcode Lookup" Height="667" Width="700" Background="#F9FBFF">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Back Button -->
+        <Button Name="BackButton" Height="40" Width="120" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="10" Click="BackButton_Click" 
+                Background="#2874A6" BorderBrush="#1B4F72" Foreground="White" 
+                FontWeight="Bold" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <!-- Arrow Icon -->
+                <Polygon Points="10,20 30,10 30,30"
+                         Fill="White" HorizontalAlignment="Center"
+                         Margin="0,0,5,0"/>
+                <TextBlock Text="Back" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <!-- Header -->
+        <TextBlock Text="Barcode Lookup" FontSize="28" FontWeight="Bold" 
+                   Foreground="#2874A6" HorizontalAlignment="Center" Margin="10" Grid.Row="0"/>
+
+        <!-- Main Content with Border for CornerRadius and ShadowEffect -->
+        <Border Grid.Row="1" Margin="10" Background="White" BorderBrush="#2874A6" BorderThickness="2" CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect Color="Black" Direction="315" BlurRadius="10" ShadowDepth="5"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Barcode Entry -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20" HorizontalAlignment="Center" Grid.Row="0">
+                    <TextBlock Text="Enter Barcode:" FontSize="16" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="#2C3E50"/>
+                    <TextBox Name="BarcodeTextBox" Width="250" Margin="0,0,10,0" Padding="5" BorderBrush="#2874A6" BorderThickness="2"/>
+                    <Button Content="Search" Width="100" Click="SearchButton_Click" Background="#2874A6" Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+
+                <!-- Product Image and Details -->
+                <StackPanel Grid.Row="1" Margin="10" HorizontalAlignment="Center">
+                    <!-- Product Image (above the product details) -->
+                    <Border Margin="0,0,0,10" BorderBrush="#2874A6" BorderThickness="2" CornerRadius="5">
+                        <Image Name="ProductImage" MaxHeight="250" MaxWidth="533" Stretch="Uniform"/>
+                    </Border>
+
+                    <!-- Product Details below the image -->
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock Name="ProductName" Text="Product Name: " FontSize="18" FontWeight="Bold" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductCategory" Text="Category: " FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductPrice" Text="Price: " FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductStock" Text="Stock: " FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductCreatedAt" Text="SKU:" FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductUpdatedAt" Text="Updated At: " FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                        <TextBlock Name="ProductSKU" Text="CreatedAt:" FontSize="18" Margin="0,5" Foreground="#2C3E50"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
