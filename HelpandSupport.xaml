@@ -1,0 +1,73 @@
+﻿<Window x:Class="InventoryManagementSystem.HelpAndSupportWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Help and Support" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen" Background="#F3F4F6" FontFamily="Segoe UI">
+
+    <Grid Margin="0,42,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="348*"/>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="180*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="Help and Support" FontSize="24" FontWeight="Bold" Foreground="#1B4F72" HorizontalAlignment="Center" Margin="0,10,0,10" Grid.Column="5" Width="200"/>
+
+        <!-- Back Button -->
+        <Button Name="BackButton" Height="26" Width="109" 
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="2,-18,0,0" Click="BackButton_Click" 
+                Background="#2874A6" BorderBrush="#1B4F72" Foreground="White" 
+                FontWeight="Bold" BorderThickness="1" Grid.Column="4">
+            <TextBlock Text="Back" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Button>
+
+        <!-- Tab Control -->
+        <TabControl x:Name="HelpTabControl" Margin="0,20,20,20" Background="White" BorderBrush="#1B4F72" BorderThickness="2" Grid.ColumnSpan="6" Grid.Column="2">
+            <!-- User Manuals Tab -->
+            <TabItem Header="User Manuals" Background="#1B4F72" Foreground="Black">
+                <ScrollViewer Margin="10">
+                    <StackPanel x:Name="UserManualStackPanel">
+                        <!-- Content will be dynamically loaded based on the role -->
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- FAQs Tab -->
+            <TabItem Header="FAQs" Background="#1B4F72">
+                <ScrollViewer Margin="10">
+                    <StackPanel x:Name="FAQStackPanel">
+                        <!-- Content will be dynamically loaded based on the role -->
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- Contact Support Tab -->
+            <TabItem Header="Contact Support" Background="#1B4F72" Foreground="White">
+                <StackPanel Margin="20,0,20,0" Height="464">
+                    <TextBlock Text="Contact Support Form" FontSize="18" FontWeight="Bold" Foreground="#1B4F72" Margin="10"/>
+
+                    <!-- Name Field -->
+                    <TextBlock Text="Your Name" FontSize="14" FontWeight="Bold" Foreground="#1B4F72" Margin="10"/>
+                    <TextBox Name="UserNameTextBox" Height="30" Margin="10"/>
+
+                    <!-- Email Field -->
+                    <TextBlock Text="Your Email" FontSize="14" FontWeight="Bold" Foreground="#1B4F72" Margin="10"/>
+                    <TextBox Name="UserEmailTextBox" Height="30" Margin="10"/>
+
+                    <!-- Message Field -->
+                    <TextBlock Text="Your Message" FontSize="14" FontWeight="Bold" Foreground="#1B4F72" Margin="10"/>
+                    <TextBox Name="SupportMessageTextBox" AcceptsReturn="True" Height="100" TextWrapping="Wrap" Margin="10"/>
+
+                    <Button Content="Submit" Background="#2874A6" Foreground="White" Width="150" Height="40" HorizontalAlignment="Center" Margin="10" Click="SubmitSupportForm_Click"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
