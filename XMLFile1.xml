@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <connectionStrings>
+        <add name="InventoryDB"
+   connectionString="Data Source=C:\\Users\\noora\\source\\repos\\project ex\\project ex\\project ex\\InventoryManagement.db;Version=3;" providerName="System.Data.SQLite" />
+    </connectionStrings>
+</configuration>
+
+
