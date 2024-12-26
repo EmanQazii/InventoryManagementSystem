@@ -1,0 +1,55 @@
+﻿<Window x:Class="InventoryManagementSystem.ReportsAndAnalytics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title="Reports and Analytics" Height="600" Width="800" Background="White">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Header -->
+        <TextBlock Text="Reports and Analytics" FontSize="24" FontWeight="Bold" 
+                   Foreground="#0288D1" HorizontalAlignment="Center" Margin="10" Grid.Row="0"/>
+
+        <!-- Back Button -->
+        <Button Name="BackButton" Height="40" Width="120"  
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Margin="10,10,0,0" Click="BackButton_Click" 
+                Background="#2874A6" BorderBrush="#1B4F72" Foreground="White" 
+                FontWeight="Bold" FontFamily="Segoe UI" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="◀" FontSize="16" Margin="0,0,5,0" Foreground="White"/>
+                <TextBlock Text="Back" FontSize="14" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel: Inventory Valuation -->
+            <StackPanel Grid.Column="0" Margin="10">
+                <TextBlock Text="Inventory Valuation" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                <lvc:PieChart x:Name="InventoryValuationPieChart" Height="200" Margin="0,10">
+                    <!-- Series will be dynamically populated -->
+                </lvc:PieChart>
+
+                <Button Content="Refresh" Width="100" Height="40" Background="#0288D1" 
+                        Foreground="White" FontSize="14" FontWeight="Bold" 
+                        HorizontalAlignment="Left" Click="RefreshButton_Click"/>
+            </StackPanel>
+
+            <!-- Right Panel: Sales Trends -->
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock Text="Sales Trends" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+                <lvc:CartesianChart x:Name="SalesTrendsLineChart" Height="300" Margin="0,10">
+                    <!-- Series will be dynamically populated -->
+                </lvc:CartesianChart>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
